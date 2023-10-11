@@ -6,6 +6,7 @@
 public class VirtualPet {
     
     VirtualPetFace face;
+    int happiness = 100;
     int nutrition = 100;
     int hunger = 0;   // how hungry the pet is.
     private int tiredness = 0;
