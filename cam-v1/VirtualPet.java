@@ -6,7 +6,7 @@
 public class VirtualPet {
     
     VirtualPetFace face;
-    int boredom = 0; //what do you think this is
+    int nutrition = 100;
     int hunger = 0;   // how hungry the pet is.
     private int tiredness = 0;
     // constructor
@@ -14,6 +14,10 @@ public class VirtualPet {
         face = new VirtualPetFace();
         face.setImage("normal");
         face.setMessage("Hello.");
+    }
+
+    public int getNutrition(){
+        return nutrition;
     }
 
     public int getHunger(){
