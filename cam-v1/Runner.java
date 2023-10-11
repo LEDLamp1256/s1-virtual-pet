@@ -2,34 +2,26 @@ import javax.swing.*;
 
 public class Runner{
 
+    int days = 0;
+    int mealsEaten = 0;
     boolean notDead = true;
 
     public Runner(){
         VirtualPet p = new VirtualPet();
 
+        p.face.setImage("normal");
+
         while(notDead){
-            
-
-
-            if((p.getHunger() >= 100) || (p.boredom >= 100)){
-                p.death(); //dieded lol 
+            if((p.getHunger() >= 100) || (p.getNutrition() <= 0)){
+                
+                //p.death(); //dieded lol 
             }
+            if(mealsEaten == 0){
+                String breakfast = getResponse("What should I eat for breakfast?");
+                if(!(breakfast.equals("")))
+            }
+
         }
-        p.exercise();
-
-        wait(1000);
-
-        p.feed();
-
-        wait(1000);
-
-        
-
-        wait(1000);
-
-        p.exercise();
-
-        
     }
 
     // public void gameLoop(){
