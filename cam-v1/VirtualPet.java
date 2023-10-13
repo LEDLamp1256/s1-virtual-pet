@@ -17,8 +17,20 @@ public class VirtualPet {
         face.setMessage("Hello.");
     }
 
+    public void changeNutrition(int c){
+        this.nutrition += c;
+    }
+
+    public void changeHappiness(int c){
+        this.happiness += c;
+    }
+
     public int getNutrition(){
         return nutrition;
+    }
+
+    public int getHappiness(){
+        return happiness;
     }
 
     public int getHunger(){

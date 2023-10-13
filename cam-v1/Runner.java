@@ -13,30 +13,35 @@ public class Runner{
         p.face.setImage(emotion);
 
         while(notDead){
-            if((p.getHunger() >= 100) || (p.getNutrition() <= 0)){
-                
+            if((p.getHunger() >= 100) || (p.getNutrition() <= 0) || (p.getHappiness() <= 1)){
+                p.face.setImage("pushingdaisies");
                 //p.death(); //dieded lol 
             }
             //add images :(
-            if(mealsEaten == 0){
+            else if(mealsEaten == 0){
                 p.face.setMessage("What should I eat for breakfast?");
                 String breakfast = getResponse("What should it eat for breakfast?");
                 if(!(breakfast.toLowerCase().equals("hashbrown"))){
                     p.face.setMessage("Can I have a hashbrown?");
-                    if(getResponse("Can it have a hashbrown?").toLowerCase().equals("no")){
+                    wait(5000);
+                    String hashbrownStatus = getResponse("Can it have a hashbrown?").toLowerCase();
+                    if(hashbrownStatus.equals("no")){
                         emotion = "sad";
                         p.face.setImage(emotion);
                         p.face.setMessage("Are you sure I cant have a hashbrown...");
+                        wait(5000);
                         if(getResponse("Are you sure it cant have a hashbrown?").toLowerCase().equals("yes")){
-                            p.happiness -= 10;
+                            p.changeHappiness(-100);
                             p.face.setMessage("Fine...");  
+                            wait(5000);
                         }
-                    else if(getResponse("Can it have a hashbrown?").toLowerCase().equals("yes")){
+                    }
+                    if(hashbrownStatus.equals("yes")){
                         emotion = "happy";
                         p.face.setImage(emotion);
                         p.face.setMessage("Yay!!!");
-                    }
-                        
+                        wait(5000);
+                        p.changeHappiness(10);
                     }
                     
                 }
