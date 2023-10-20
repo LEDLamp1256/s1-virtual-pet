@@ -16,7 +16,7 @@ public class Runner{
             if((p.getHunger() >= 100) || (p.getNutrition() <= 0) || (p.getHappiness() <= 1)){
                 notDead = false;
             }
-            else if(days >= 20){
+            else if(mealsEaten >= 60){
                 break;
             }
             //add images :(
@@ -30,11 +30,11 @@ public class Runner{
                     p.face.setMessage("I'll eat it...");
                     p.face.setImage("plant");
                     p.face.setMessage("");
-                    wait(5000);
+                    wait(1000);
                     p.face.setMessage("Ew! That was yucky");
                     p.face.setImage("sick");
                     p.face.setMessage("");
-                    wait(5000);
+                    wait(1000);
                     p.face.setImage("verysad");
                     p.changeNutrition(10);
                     p.changeHappiness(-10);
@@ -43,7 +43,7 @@ public class Runner{
                     p.face.setMessage("Yay!");
                     p.face.setMessage("");
                     p.face.setImage("joyful");
-                    wait(5000);
+                    wait(1000);
                     p.changeNutrition(-10);
                     p.changeHappiness(10);
                 }
@@ -52,11 +52,8 @@ public class Runner{
                 p.face.setMessage("I am at: " + p.nutrition + " nutrition!");
                 wait(1000);
                 p.face.setMessage("Hint! Feed him plant to make him nutritionized, but not too many!");
-                wait(5000);
-                if(mealsEaten % 3 == 0){
-                    p.face.setMessage("Another day passes...");
-                    days += 1;
-                }
+                wait(1000);
+                
                 mealsEaten += 1;
                 p.face.setMessage("Im hungry again!");
 
